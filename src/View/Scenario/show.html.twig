@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Cartes</h1>
+    <a href="/play" class="retour" id="Button">Retour</a>
+    <form class="pioche" action="/draw" method="POST">
+        <div>
+            <label for="draw_number">Carte N° </label>
+            <input id="draw_number" name="draw_number" type="number">
+        </div>
+            <input type="hidden" value="{{scenarioId}}" name="scenarioId" id="scenarioId">
+        <div>
+            <button type="submit">Piocher</button>
+        </div>
+    </form>
+    <div class="contentShow">
+        {% for card in cards %}
+            <div class="card">
+                <div class="upcards">
+                    <h3>{{ card.name }}</h3> <br>
+                    <p2>{{ card.card_number }}</p> <br>
+                </div>
+           {% if card.image_name == true %}
+                <div>
+                    <img src="/assets/images/{{ card.image_name }}" alt="">
+                </div>
+           {% endif %}
+  
+                <p1>{{ card.text }}</p1> <br><br>
+                <form class="discardForm" action="/discard" method="POST">
+                    <input type="hidden" value="{{ card.card_number }}" name="discardCard" id="discardCard">
+                    <input type="hidden" value="{{scenarioId}}" name="scenarioId" id="scenarioId">                   
+                    <button class="discardButton" type="submit">Défausser</button>
+                </form>
+            </div>
+        {% else %}
+            <li>Rien à afficher</li>
+        {% endfor %}
+    </div>
+{% endblock %}

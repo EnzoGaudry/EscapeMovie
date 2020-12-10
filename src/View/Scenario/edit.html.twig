@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit Scenario</h1>
+    <a href="/edit" class="retour" id="Button">Retour</a>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" value="{{ scenario.name }}">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" name="description">{{ scenario.description }}</textarea>
+        </div>
+        <div>
+            <label for="realised_by">Realisé par</label>
+            <input id="realised_by" name="realised_by" value="{{ scenario.realised_by }}">
+        </div>
+        <div>
+            <label for="image_name">Ajouter une image</label>
+            <input id="image_name" name="image_name" type="File">
+        </div>
+        <button type="submit">Soumettre</button>
+        
+    </form>
+{% endblock %}

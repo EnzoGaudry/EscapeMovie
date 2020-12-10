@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+    {% block content %}
+        <h1>Ajouter une carte</h1>
+        <a href="/edit" class="retour" id="Button">Retour</a>
+        <a href="/cancel?id={{ id }}" class="cancel">Supprimer le scénario</a>
+        <form action="" method="post" enctype="multipart/form-data">
+
+            <div>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text">
+            </div>
+            <div>
+                <label for="text">Description</label>
+                <textarea id="text" name="text"></textarea>
+            </div>
+            <div>
+                <label for="card_number">Numéro de carte</label>
+                <input id="card_number" name="card_number" type="number">
+            </div>
+            <div>
+                <label for="image_name">Choisir une image</label>
+                <input id="image_name" name="image_name" type="File">
+            </div>
+            <button type="submit" value="Submit">Soumettre</button>
+
+        </form>
+            <div class="contentShow">
+                {% for card in cards %}
+                <div class="cards">
+                    <div class="upcards">
+                        <h3>{{ card.name }}</h3> <br>
+                        <p2>{{ card.card_number }}</p> <br>
+                    </div>
+                    {% if card.image_name == true %}
+                        <div>
+                            <img src="/assets/images/{{ card.image_name }}" alt="">
+                        </div>
+                    {% endif %}
+                    <p1>{{ card.text }}</p1> <br><br>
+                    <a href="delete?id={{card.id}}" id="Button">Supprimer</a>
+                    <a id="Button" class="Modifier" href="editcard?id={{card.id}}">Modifier</a>
+                </div>
+                {% else %}
+                    <li>Rien à afficher</li>
+                {% endfor %}
+            </div>
+    {% endblock %}

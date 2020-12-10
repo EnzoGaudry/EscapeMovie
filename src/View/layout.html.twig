@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    {% block stylesheet %}{% endblock %}
+    <link rel="icon" href="/assets/images/logo.svg">
+</head>
+
+<body>
+<img class="logo" src="/assets/images/logo.jpg" alt="">
+{% block content %}{% endblock %}
+{% block javascript %}{% endblock %}
+<footer>
+    <p>Ajouter notre équipe sur LinkedIn :</p>
+    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/enzogaudry/">Enzo Gaudry</a>
+    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/baptiste-vayssi%C3%A9-0a62b71b8/">Baptiste Vayssié</a>
+    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/nathan-machrouh/">Nathan Machrouh</a>
+    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/alice-petitjean-36729419b/">Alice Petitjean</a>
+    <div class="partenaire">
+        <p>Et un grand merci à notre partenaire :</p>
+        <a target="_blank" href="http://www.lapelliculeensorcelee.org/"><img class="pellicule" src="/assets/images/Pellicule.png" alt=""></a>
+    </div>
+</footer>
+</body>
+</html>
+
+

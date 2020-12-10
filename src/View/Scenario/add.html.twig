@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Ajouter un scénario</h1>
+    <a href="/" class="retour" id="Button">Retour</a>
+    <form action="" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" value="{{ scenarios.name }}">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description" name="description" value="{{ scenarios.description }}"></textarea>
+            </div>
+            <div>
+                <label for="realised_by">Realisé par</label>
+                <input id="realised_by" name="realised_by" type="text" value="{{ scenarios.realised_by }}">
+            </div>
+            <div>
+                <label for="image_name">Choisir une image</label>
+                <input id="image_name" name="image_name" type="File">
+            </div>
+            <button type="submit">Soumettre</button>
+        </form>
+        <div class="contentBrowse">
+            {% for scenario in scenarios %}
+            <div class="card">
+                <h3>{{ scenario.name }}</h3> <br>
+                {% if scenario.image_name is not null %}
+                    <div>
+                        <img src="/assets/images/{{ scenario.image_name }}" alt="">
+                    </div>
+                {% endif %}
+                <p>{{ scenario.description }}</p> <br>
+                <p>Realisé par : {{ scenario.realised_by }}</p><br>
+                <a href="editscenario?id={{ scenario.id }}" class="button" id="Button"> Éditer Scénario</a>
+                <a href="addcard?id={{ scenario.id }}" class="button" id="Button"> Éditer Cartes</a>
+            </div>
+            {% else %}
+                <li>Rien à afficher</li>
+            {% endfor %}
+        </div>
+{% endblock %}

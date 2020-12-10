@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Éditer une carte</h1>
+    <button class="retour" id="Button" onclick="window.history.go(-1)">Retour</button>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" value="{{ card.name }}">
+        </div>
+        <div>
+            <label for="text">Description</label>
+            <textarea id="text" name="text" placeholder="">{{card.text}}</textarea>
+        </div>
+        <div>
+            <label for="card_number">Numéro de carte</label>
+            <input id="card_number" name="card_number" type="number" value="{{card.card_number}}">
+        </div>
+        <div>
+            <label for="image_name">Choisir une image</label>
+            <input id="image_name" name="image_name" type="File">
+        </div>
+        <button type="submit" value="Submit">Soumettre</button>
+    </form>
+{% endblock %}

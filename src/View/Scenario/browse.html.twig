@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="scenario">Scénarios</h1>
+    <a href="/" class="retour" id="Button">Retour</a>
+    <div class="contentBrowse">
+        {% for scenarios in scenarios %}
+            <a href="show?id={{scenarios.id }}" class="card">
+            <h3>{{ scenarios.name }}</h3> <br>
+            {% if scenarios.image_name is not null %}
+                <div>
+                    <img src="/assets/images/{{ scenarios.image_name }}" alt="">
+                </div>
+            {% endif %}
+            <p>{{ scenarios.description }}</p> <br>
+            <p>Realisé par : {{ scenarios.realised_by }}</p> <br>Jouer</a><br><br>
+        {% else %}
+            <li>Rien à afficher</li>
+        {% endfor %}
+    </div>
+{% endblock %}
